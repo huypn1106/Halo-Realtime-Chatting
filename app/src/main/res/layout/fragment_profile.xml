@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+
+    <ImageView
+        android:id="@+id/img_cover_photo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/color_blue_gradient"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/circle"
+        android:src="@drawable/default_user_image"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_avatar"
+        app:layout_constraintStart_toEndOf="@+id/img_avatar"
+        app:layout_constraintTop_toTopOf="@+id/img_avatar" />
+
+    <LinearLayout
+        android:id="@+id/layout_display_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_cover_photo"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_display_name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_displayname"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_display_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_display_name"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_username_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_username"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_username"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_email_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_emailaddress"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_email"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_phoneno_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_phoneno"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_phoneno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_phone"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_dob_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_dob"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_dob"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_dob"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_gender_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_gender"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textview_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_update_profile"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/general"
+        android:drawableLeft="@drawable/update_profile"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/background_border_button"
+        android:paddingVertical="15dp"
+        android:text="@string/btn_update_profile"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_gender"></Button>
+
+    <ImageButton
+        android:id="@+id/btn_change_avatar"
+        android:layout_width="22dp"
+        android:layout_height="17dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_camera_24"
+        app:layout_constraintBottom_toBottomOf="@+id/img_avatar"
+        app:layout_constraintStart_toStartOf="@+id/img_avatar"
+        app:layout_constraintTop_toTopOf="@+id/img_avatar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/btn_change_cover"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_camera_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

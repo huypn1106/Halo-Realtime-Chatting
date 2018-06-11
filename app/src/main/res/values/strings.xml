@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Halo</string>
+    <string name="btn_login_text"> Login</string>
+    <string name="btn_register_text"> Register</string>
+    <string name="btn_add_friend"> Add Friend</string>
+    <string name="btn_send_message"> Send Message</string>
+    <string name="btn_unfriend"> Unfriend</string>
+    <string name="btn_cancel_request"> Cancel request</string>
+    <string name="title_login">Login</string>
+    <string name="title_register">Register</string>
+    <string name="title_forgetpass">Forget password</string>
+    <string name="title_update_profile">Update Profile</string>
+    <string name="title_email_verify">Email Verification</string>
+    <string name="title_message">Message</string>
+    <string name="confirm">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_contact">Contact</string>
+    <string name="title_settings">Setting</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_displayname">Display name</string>
+    <string name="hint_emailaddress">Email address</string>
+    <string name="hint_phoneno">Phone number</string>
+    <string name="hint_confirmpass">Confirm password</string>
+    <string name="hint_login">Using Username or Email to login</string>
+    <string name="hint_register">Input your information to create account</string>
+    <string name="hint_dob">Date of Birth</string>
+    <string name="hint_gender">Gender</string>
+    <string name="hint_forgetpass">Enter your Email address to recover password</string>
+    <string name="hint_search_friend">Search friends...</string>
+    <string name="forget_password">Forgot your password?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="birthdaytitle">Select your Date of Birth</string>
+    <string name="locale_lang">en-us</string>
+    <string name="btn_verify">Verify</string>
+    <string name="btn_recover">Recover</string>
+    <string name="btn_update_profile">Update profile</string>
+    <string name="register_email_exist">Email has been taken by other account</string>
+    <string name="register_email_incorrect">Email format is incorrect</string>
+    <string name="register_password_week">Make a stronger password</string>
+    <string name="register_unhandled">Unhandled exception</string>
+    <string name="register_password_not_match">Password and Confirm password are not match</string>
+    <string name="register_username_exist">Username has already taken</string>
+    <string name="register_blank_error">Please input to all field</string>
+    <string name="error_phone_length">Phone number is not valid</string>
+    <string name="email_not_verify">Your email haven\'t verified! You have to verify email to active your account</string>
+    <string name="email_verified">You have verified your Email. Your account have been actived!</string>
+    <string name="authentication_failed">Authentication failed! Check your username and password</string>
+    <string name="btn_send_verify">Send Verify Email</string>
+    <string name="signing_up">Signing up, Please wait...</string>
+    <string name="signing_in">Signing in, Please wait...</string>
+    <string name="received_email">You have been received an verify Email. Read and follow it to reset password</string>
+    <string name="email_error">This email is not your account Email, check and try again</string>
+    <string name="checking">Checking...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="font_fontFamily_medium">sans-serif-medium</string>
+
+    <string name="action_delete">Delete</string>
+    <string name="action_copy">Copy</string>
+    <string name="copied_message">Message copied!</string>
+    <string name="on_text_message_click">Text message has been clicked!</string>
+</resources>

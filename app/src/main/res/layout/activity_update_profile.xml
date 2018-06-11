@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.UpdateProfileActivity">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"></include>
+
+
+
+    <LinearLayout
+        android:id="@+id/layout_display_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_cover_photo"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_display_name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_displayname"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/edittext_display_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_email"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/textview_phoneno_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_phoneno"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/edittext_phoneno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_phone"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/textview_dob_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_dob"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/textview_dob"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="10dp"
+            android:textAlignment="textStart"
+            android:text="Phạm Ngọc Huy"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_weight="3"/>
+
+        <ImageButton
+            android:id="@+id/btn_datepicker"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:background="@color/hintEdittext"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_dob"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/textview_gender_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/hint_gender"
+            android:textSize="16sp"
+            android:layout_weight="2"/>
+
+        <Spinner
+            android:id="@+id/spinner_gender"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="match_parent"
+            ></Spinner>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_update_profile"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/general"
+        android:drawableLeft="@drawable/update_profile"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/background_border_button"
+        android:paddingVertical="15dp"
+        android:text="@string/btn_update_profile"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_gender"></Button>
+
+    <TextView
+        android:id="@+id/textview_errormessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:text="Register failed, unhandled exception"/>
+
+</LinearLayout>

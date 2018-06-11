@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.SettingFragment">
+
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/background_setting"
+        android:descendantFocusability="blocksDescendants">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginVertical="2dp"
+            android:background="@drawable/circle"
+            android:src="@drawable/default_user_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Display Name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_avatar"
+            app:layout_constraintStart_toEndOf="@+id/img_avatar"
+            app:layout_constraintTop_toTopOf="@+id/img_avatar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textview_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="4dp"
+            android:text="\@username"
+            app:layout_constraintEnd_toEndOf="@+id/textview_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textview_title"
+            app:layout_constraintTop_toBottomOf="@+id/textview_title" />
+
+        <ImageButton
+            android:id="@+id/btn_message"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textview_title"
+            app:srcCompat="@drawable/ic_message" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Switch
+        android:background="@drawable/background_setting"
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable Notification   "
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="12dp"/>
+
+
+    <Switch
+        android:background="@drawable/background_setting"
+        android:id="@+id/switch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Receive Friend Request"
+        android:textSize="16sp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="12dp"/>
+
+
+    <LinearLayout
+        android:background="@drawable/background_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="12dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:text="Language"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/background_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="12dp"
+        android:descendantFocusability="blocksDescendants"
+        android:clickable="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:text="Change Password"/>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.MainScreen"
+    android:background="#E0E0E0">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"></include>
+
+
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="13">
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="12">
+
+                <!--<FrameLayout-->
+                    <!--android:id="@+id/dynamic_content"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--</FrameLayout>-->
+
+                <fragment
+                    android:id="@+id/chat_fragment"
+                    class="com.deadk.halo.fragments.ChatFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/fragment_chat">
+
+                </fragment>
+
+                <fragment
+                    android:id="@+id/contact_fragment"
+                    class="com.deadk.halo.fragments.ContactFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/fragment_contact">
+
+                </fragment>
+
+
+                <fragment
+                    android:id="@+id/profile_fragment"
+                    class="com.deadk.halo.fragments.ProfileFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/fragment_profile">
+
+                </fragment>
+
+
+                <fragment
+                    android:id="@+id/setting_fragment"
+                    class="com.deadk.halo.fragments.SettingFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/fragment_setting">
+
+                </fragment>
+
+
+
+                <!--<FrameLayout-->
+                    <!--android:id="@+id/tabContact"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--</FrameLayout>-->
+
+                <!--<FrameLayout-->
+                    <!--android:id="@+id/tabProfile"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--</FrameLayout>-->
+
+                <!--<FrameLayout-->
+                    <!--android:id="@+id/tabSetting"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--</FrameLayout>-->
+
+            </FrameLayout>
+
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#EEEEEE"/>
+
+        </LinearLayout>
+    </TabHost>
+
+
+</LinearLayout>

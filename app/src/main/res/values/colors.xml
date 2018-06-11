@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#59f5f5</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="general">#0080FF</color>
+    <color name="hintEdittext">#A0A0A0</color>
+    <color name="normalEditText">#202020</color>
+    <color name="normalbackground">#F3F3F3</color>
+    <color name="error">#e53935</color>
+    <color name="success">#00c853</color>
+    <color name="commomtext">#FAFAFA</color>
+
+    <color name="black">#000000</color>
+
+    <color name="dialog_divider">@color/white_three</color>
+    <color name="gray_light">#e8e8e8</color>
+    <color name="gray_dark">#858585</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white_three">#ebebeb</color>
+
+    <color name="dark_mint">#51c05c</color>
+    <color name="red">#e94f4f</color>
+</resources>

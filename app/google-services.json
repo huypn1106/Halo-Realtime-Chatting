@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "375295192171",
+    "firebase_url": "https://deadk1308.firebaseio.com",
+    "project_id": "deadk1308",
+    "storage_bucket": "deadk1308.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375295192171:android:e149ba660c101515",
+        "android_client_info": {
+          "package_name": "com.deadk.halo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375295192171-un24j2prmbf9jiabhsui3j4n9nnjvmvk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deadk.halo",
+            "certificate_hash": "5bd2804feb1a29bc1b494e421b74257ac361ccd6"
+          }
+        },
+        {
+          "client_id": "375295192171-5iailkp6fkdvv9fn79egmtja75f5h1ie.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "375295192171-5iailkp6fkdvv9fn79egmtja75f5h1ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH1bBhyZPr6g88KhtU33mk0aEmAVTvzj0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375295192171-5iailkp6fkdvv9fn79egmtja75f5h1ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
