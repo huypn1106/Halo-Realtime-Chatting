@@ -160,6 +160,9 @@ public class ProfileFragment extends Fragment {
         usersRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                Log.d("hihihi", "day la trong Check set user info 1");
+
                 currentUser = dataSnapshot.getValue(User.class);
 
                 tvName.setText(currentUser.getDisplayName().toString());
@@ -172,7 +175,6 @@ public class ProfileFragment extends Fragment {
                 String gender = currentUser.getGender().equals("Male")?getResources().getString(R.string.male):getResources().getString(R.string.female);
 
                 tvGender.setText(gender);
-
                 imgAvatar.setImageURI(user.getPhotoUrl());
             }
 

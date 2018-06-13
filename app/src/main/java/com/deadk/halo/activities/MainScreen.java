@@ -38,7 +38,7 @@ import butterknife.OnClick;
 public class MainScreen extends AppCompatActivity {
 
     @BindView(R.id.tabHost)
-    TabHost tabHost;
+    public TabHost tabHost;
 
     Fragment chatFragment;
     Fragment contactFragment;

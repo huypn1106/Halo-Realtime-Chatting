@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,8 @@ public class FriendRequestFragment extends Fragment {
     FirebaseDatabase database = DataProvider.getInstance().getDatabase();
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
+    ChildEventListener mListener;
+
 
 
     @Override
@@ -60,10 +63,15 @@ public class FriendRequestFragment extends Fragment {
         View V = inflater.inflate(R.layout.fragment_friend_request, container, false);
 
         ButterKnife.bind(this,V);
-        setListView();
         return V;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setListView();
+    }
 
     void setListView(){
 
@@ -72,7 +80,7 @@ public class FriendRequestFragment extends Fragment {
 
 
         final DatabaseReference usersRef = database.getReference("users");
-        final DatabaseReference friendReqRef = database.getReference("friendrequests");
+        final DatabaseReference friendReqRef = database.getReference("friendrequests/"+ firebaseUser.getUid());
 
         friendAdapter = new UserAdapter(getActivity(), listUser);
         //    listViewFriends.setAdapter(userAdapter);
@@ -90,22 +98,24 @@ public class FriendRequestFragment extends Fragment {
 
 
 
-        friendReqRef.child(firebaseUser.getUid()).addChildEventListener(new ChildEventListener() {
+        mListener = friendReqRef.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 String uid = dataSnapshot.child("uid").getValue(String.class);
 
+                Log.d("hihihi", "day la trong Check set friend req 1 " + uid);
+
                 usersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                        Log.d("hihihi", "day la trong Check set friend req 2");
                         User usr = (User) dataSnapshot.getValue(User.class);
                         listUser.add(usr);
                         Collections.sort(listUser);
                         friendAdapter.notifyDataSetChanged();
-
                     }
 
 
@@ -130,35 +140,43 @@ public class FriendRequestFragment extends Fragment {
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-
-                int i = 0;
-                for(User olduser : listUser){
-                    if(olduser.getUsername().equals(usr.getUsername())){
-                        listUser.remove(olduser);
-                        listUser.add(i,usr);
-                        break;
-                    }
-                    i++;
-                }
-
-                friendAdapter.notifyDataSetChanged();
+//                User usr = (User) dataSnapshot.getValue(User.class);
+//
+//                int i = 0;
+//                for(User olduser : listUser){
+//                    if(olduser.getUsername().equals(usr.getUsername())){
+//                        listUser.remove(olduser);
+//                        listUser.add(i,usr);
+//                        break;
+//                    }
+//                    i++;
+//                }
+//
+//                friendAdapter.notifyDataSetChanged();
 
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-                listUser.remove(usr);
+                String uid = dataSnapshot.child("uid").getValue(String.class);
+
+
+                for(int i=0; i<listUser.size();i++){
+                    if(listUser.get(i).getUid().equals(uid)){
+                        listUser.remove(i);
+                        break;
+                    }
+                }
+
                 friendAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                Collections.sort(listUser);
-                friendAdapter.notifyDataSetChanged();
+//                Collections.sort(listUser);
+//                friendAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -170,4 +188,11 @@ public class FriendRequestFragment extends Fragment {
 
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        DatabaseReference friendReqRef = database.getReference("friendrequests/"+ firebaseUser.getUid());
+        friendReqRef.removeEventListener(mListener);
+    }
 }

@@ -11,6 +11,8 @@
     <color name="success">#00c853</color>
     <color name="commomtext">#FAFAFA</color>
 
+    <color name="common_gray">#E0E0E0</color>
+
     <color name="black">#000000</color>
 
     <color name="dialog_divider">@color/white_three</color>

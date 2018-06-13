@@ -143,6 +143,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                        Log.d("hihihi", "day la trong Check friend ref 1");
                         if(dataSnapshot.exists())
                         {
                             btnSendMessage.setVisibility(View.VISIBLE);
@@ -156,6 +157,7 @@ public class UserInfoActivity extends AppCompatActivity {
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            Log.d("hihihi", "day la trong Check friend ref 2");
                                             if(dataSnapshot.exists()){
                                                 btnCancleRequest.setVisibility(View.VISIBLE);
                                             }
@@ -167,6 +169,7 @@ public class UserInfoActivity extends AppCompatActivity {
                                                         .addListenerForSingleValueEvent(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                Log.d("hihihi", "day la trong Check friend ref 3");
                                                                 if(dataSnapshot.exists()){
                                                                     tvReceiveRequest.setVisibility(View.VISIBLE);
                                                                     layoutReceiveRequest.setVisibility(View.VISIBLE);
@@ -251,6 +254,8 @@ public class UserInfoActivity extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                                        Log.d("hihihi", "day la trong Check friend ref unfriend");
+
                                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
                                             if (data.child("uid").getValue(String.class).equals(pickedUser.getUid())) {
@@ -273,6 +278,7 @@ public class UserInfoActivity extends AppCompatActivity {
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        Log.d("hihihi", "day la trong Check friend ref unfriend");
 
                                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
@@ -321,9 +327,11 @@ public class UserInfoActivity extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                                        Log.d("hihihi", "day la trong Check friend ref cancel requst");
+
                                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
-                                            if (data.child("uid").getValue(String.class).equals(pickedUser.getUid())) {
+                                            if (data.child("uid").getValue(String.class).equals(firebaseUser.getUid())) {
                                                 data.getRef().removeValue();
 
                                                 btnCancleRequest.setVisibility(View.GONE);
@@ -364,6 +372,8 @@ public class UserInfoActivity extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        Log.d("hihihi", "day la trong Check friend ref accept res");
                         if (dataSnapshot.exists()) {
 
                             FriendRequest friendRequest = dataSnapshot.getChildren().iterator().next().getValue(FriendRequest.class);
@@ -380,6 +390,8 @@ public class UserInfoActivity extends AppCompatActivity {
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                            Log.d("hihihi", "day la trong Check friend ref res 2");
 
                                             for (DataSnapshot data : dataSnapshot.getChildren()) {
 
@@ -422,7 +434,11 @@ public class UserInfoActivity extends AppCompatActivity {
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        Log.d("hihihi", "day la trong Check reject");
                                         for(DataSnapshot data:dataSnapshot.getChildren()) {
+
+
 
                                             if(data.child("uid").getValue(String.class).equals(pickedUser.getUid())) {
                                                 data.getRef().removeValue();

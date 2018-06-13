@@ -96,6 +96,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
         switch (v.getId()){
             case R.id.tab_friend:{
+                friendFragment = new FriendFragment();
                 tabFriend.setTextColor(getResources().getColor(R.color.general));
                 ft.replace(R.id.list_manager,friendFragment);
                 ft.commit();
@@ -108,6 +109,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
             }break;
 
             case R.id.tab_request:{
+                friendRequestFragment = new FriendRequestFragment();
                 tabRequest.setTextColor(getResources().getColor(R.color.general));
                 ft.replace(R.id.list_manager,friendRequestFragment);
                 ft.commit();

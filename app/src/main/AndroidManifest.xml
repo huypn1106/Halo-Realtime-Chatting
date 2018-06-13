@@ -38,23 +38,22 @@
         <activity
             android:name=".activities.SplashScreen"
             android:theme="@style/noAnimTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".activities.FindFriendsActivity">
-        </activity>
+        <activity android:name=".activities.FindFriendsActivity"></activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".activities.UpdateProfileActivity"
             android:parentActivityName=".activities.MainScreen" />
-        <activity android:name=".activities.UserInfoActivity"></activity>
+        <activity android:name=".activities.UserInfoActivity" />
+        <activity android:name=".activities.ChangePasswordActivity"
+            android:parentActivityName=".activities.MainScreen"></activity>
     </application>
 
 </manifest>

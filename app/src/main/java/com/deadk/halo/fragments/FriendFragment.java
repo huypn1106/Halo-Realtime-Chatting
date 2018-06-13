@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.deadk.halo.R;
 import com.deadk.halo.activities.FindFriendsActivity;
@@ -50,6 +52,8 @@ public class FriendFragment extends Fragment {
     FirebaseDatabase database = DataProvider.getInstance().getDatabase();
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
+    ChildEventListener mLitstener;
+
 
 
     @Override
@@ -60,19 +64,63 @@ public class FriendFragment extends Fragment {
         View V = inflater.inflate(R.layout.fragment_friend, container, false);
 
         ButterKnife.bind(this,V);
-        setListView();
+
         return V;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setListView();
+    }
 
     void setListView(){
 
+//        friendRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for(DataSnapshot data : dataSnapshot.getChildren()){
+//
+//                    Log.d("hihihi", "day la trong Check set list view");
+//
+//                    String uid = data.child("uid").getValue(String.class);
+//
+//                    final DatabaseReference usersRef = database.getReference("users/"+uid);
+//
+//                    usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                            Log.d("hihihi", "day la trong Check set list view 2");
+//
+//                            User usr = (User) dataSnapshot.getValue(User.class);
+//                            listUser.add(usr);
+//                            Collections.sort(listUser);
+//                            friendAdapter.notifyDataSetChanged();
+//
+//                        }
+//
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                        }
+//                    });
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
         listUser = new ArrayList<>();
         listUser.clear();
-
-
-        final DatabaseReference usersRef = database.getReference("users");
-        final DatabaseReference friendRef = database.getReference("friends");
 
         friendAdapter = new FriendAdapter(getActivity(), listUser);
         //    listViewFriends.setAdapter(userAdapter);
@@ -89,17 +137,25 @@ public class FriendFragment extends Fragment {
         });
 
 
+        final DatabaseReference friendRef = database.getReference("friends/"+firebaseUser.getUid());
 
-        friendRef.child(firebaseUser.getUid()).addChildEventListener(new ChildEventListener() {
+        mLitstener = friendRef.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 String uid = dataSnapshot.child("uid").getValue(String.class);
+                Log.d("hihihi", "day la trong Check set list view" );
 
-                usersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+                final DatabaseReference usersRef = database.getReference("users/"+uid);
+
+                 usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        Log.d("hihihi", "day la trong Check set list view 2");
 
                         User usr = (User) dataSnapshot.getValue(User.class);
                         listUser.add(usr);
@@ -130,35 +186,48 @@ public class FriendFragment extends Fragment {
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-
-                int i = 0;
-                for(User olduser : listUser){
-                    if(olduser.getUsername().equals(usr.getUsername())){
-                        listUser.remove(olduser);
-                        listUser.add(i,usr);
-                        break;
-                    }
-                    i++;
-                }
-
-                friendAdapter.notifyDataSetChanged();
+//                User usr = (User) dataSnapshot.getValue(User.class);
+//
+//                int i = 0;
+//                for(User olduser : listUser){
+//                    if(olduser.getUsername().equals(usr.getUsername())){
+//                        listUser.remove(olduser);
+//                        listUser.add(i,usr);
+//                        break;
+//                    }
+//                    i++;
+//                }
+//
+//                friendAdapter.notifyDataSetChanged();
 
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-                listUser.remove(usr);
+//                User usr = (User) dataSnapshot.getValue(User.class);
+//                listUser.remove(usr);
+//                friendAdapter.notifyDataSetChanged();
+
+                String uid = dataSnapshot.child("uid").getValue(String.class);
+
+
+                for(int i=0; i<listUser.size();i++){
+                    if(listUser.get(i).getUid().equals(uid)){
+                        listUser.remove(i);
+                        break;
+                    }
+                }
                 friendAdapter.notifyDataSetChanged();
+
+
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                Collections.sort(listUser);
-                friendAdapter.notifyDataSetChanged();
+//                Collections.sort(listUser);
+//                friendAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -170,4 +239,14 @@ public class FriendFragment extends Fragment {
 
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        super.onDestroyView();
+        DatabaseReference friendRef = database.getReference("friends/"+firebaseUser.getUid());
+
+        friendRef.removeEventListener(mLitstener);
+    }
 }

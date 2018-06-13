@@ -38,12 +38,6 @@ import butterknife.ButterKnife;
 
 public class FindFriendsActivity extends AppCompatActivity {
 
-  //  @BindView(R.id.search_box)
- //   SearchView searchView;
- //   @BindView(R.id.listview_friends)
-  //  ListView listViewFriends;
-
-
 
     FirebaseDatabase database = DataProvider.getInstance().getDatabase();
 
@@ -56,9 +50,6 @@ public class FindFriendsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_find_friends);
-
-     //   ButterKnife.bind(this);
 
         activityFindFriendsBinding = DataBindingUtil.setContentView(this, R.layout.activity_find_friends);
         setListView();
@@ -102,7 +93,6 @@ public class FindFriendsActivity extends AppCompatActivity {
         final DatabaseReference usersRef = database.getReference("users");
 
         userAdapter = new UserAdapter(FindFriendsActivity.this, listUser);
-    //    listViewFriends.setAdapter(userAdapter);
 
         activityFindFriendsBinding.listviewFriends.setAdapter(userAdapter);
         userAdapter.getFilter().filter("");
@@ -129,6 +119,9 @@ public class FindFriendsActivity extends AppCompatActivity {
                     Collections.sort(listUser);
                     userAdapter.notifyDataSetChanged();
                 }
+
+                Log.d("hihihi", "day la trong Find friend");
+
             }
 
 
@@ -136,35 +129,35 @@ public class FindFriendsActivity extends AppCompatActivity {
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-
-                int i = 0;
-                for(User olduser : listUser){
-                    if(olduser.getUsername().equals(usr.getUsername())){
-                        listUser.remove(olduser);
-                        listUser.add(i,usr);
-                        break;
-                    }
-                    i++;
-                }
-
-                userAdapter.notifyDataSetChanged();
+//                User usr = (User) dataSnapshot.getValue(User.class);
+//
+//                int i = 0;
+//                for(User olduser : listUser){
+//                    if(olduser.getUsername().equals(usr.getUsername())){
+//                        listUser.remove(olduser);
+//                        listUser.add(i,usr);
+//                        break;
+//                    }
+//                    i++;
+//                }
+//
+//                userAdapter.notifyDataSetChanged();
 
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                User usr = (User) dataSnapshot.getValue(User.class);
-                listUser.remove(usr);
-                userAdapter.notifyDataSetChanged();
+//                User usr = (User) dataSnapshot.getValue(User.class);
+//                listUser.remove(usr);
+//                userAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                Collections.sort(listUser);
-                userAdapter.notifyDataSetChanged();
+//                Collections.sort(listUser);
+//                userAdapter.notifyDataSetChanged();
             }
 
             @Override

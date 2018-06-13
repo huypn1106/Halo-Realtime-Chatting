@@ -5,7 +5,7 @@
         <shape>
 
             <stroke  android:color="@color/hintEdittext" android:width="0.2dip"></stroke>
-            <solid android:color="@color/hintEdittext"></solid>
+            <solid android:color="@color/common_gray"></solid>
 
 
         </shape>

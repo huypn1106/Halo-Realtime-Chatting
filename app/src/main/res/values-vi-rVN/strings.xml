@@ -55,6 +55,7 @@
     <string name="received_email">Bạn đã nhận được một Email xác nhận. Đọc email và làm theo hướng dẫn để đặt lại mật khẩu</string>
     <string name="email_error">Email không đúng với tài khoản của bạn, kiểm tra và thử lại</string>
     <string name="checking">Đang kiểm tra...</string>
+    <string name="your_profile">Trang cá nhân</string>
 
     <string name="font_fontFamily_medium">sans-serif-medium</string>
 
@@ -62,4 +63,18 @@
     <string name="action_copy">Sao chép</string>
     <string name="copied_message">Đã copy tin nhắn</string>
     <string name="on_text_message_click">Bạn đã click vào tin nhắn!</string>
+
+
+    <string name="enable_notification">Thông báo tin nhắn đến</string>
+    <string name="receive_request">Nhận yêu cầu kết bạn</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="change_pass">Đổi mật khẩu</string>
+    <string name="log_out">Đăng xuất</string>
+
+    <string name="hint_current_pass">Mật khẩu hiện tại</string>
+    <string name="hint_new_pass">Mật khẩu mới</string>
+
+    <string name="change_pass_success">Đổi mật khẩu thành công</string>
+    <string name="current_pass_incorrect">Mật khẩu hiện tại không đúng</string>
+
 </resources>
